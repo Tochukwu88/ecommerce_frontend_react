@@ -1,5 +1,7 @@
 import React from 'react'
 import {Link, withRouter} from 'react-router-dom'
+import { signout, isAuth } from '../../actions/auth'
+
 
 const isActive = (history,path) =>{
     if(history.location.pathname === path){
@@ -24,6 +26,17 @@ const Header = ({history}) =>{
                         </li>
                         <li>
                             <Link style={isActive(history,"/signin")}  to='/signin'>Sign in</Link>
+                        </li>
+                        <li>
+                           { isAuth() && isAuth().user.role === 1 && (<Link style={isActive(history,"/admin/dashboard")}  to='/admin/dashboard'>Dashboard</Link>) }
+                        </li>
+                        <li>
+                           { isAuth() && isAuth().user.role === 0 && (<Link style={isActive(history,"/user/dashboard")}  to='/user/dashboard'>Dashboard</Link>) }
+                        </li>
+                        <li  style={{cursor:'pointer',color:'black'}} onClick={()=>{signout(()=>{
+                            history.push('/')
+                        })}}>
+                              Sign out
                         </li>
                     </ul>
                 </nav>
