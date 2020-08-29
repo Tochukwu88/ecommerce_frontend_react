@@ -22,6 +22,9 @@ const Header = ({history}) =>{
                             <Link style={isActive(history,"/")} to='/'>Home</Link>
                         </li>
                         <li>
+                            <Link style={isActive(history,"/shop")} to='/shop'>Shop</Link>
+                        </li>
+                        <li>
                             <Link style={isActive(history,"/signup")}  to='/signup'>Sign up</Link>
                         </li>
                         <li>

@@ -14,6 +14,8 @@ import Private from "./actions/privateRoute";
 import AdminPrivate from "./actions/AdminRoutes";
 import AddCategory from "./admin/AddCategory";
 import AddProduct from "./admin/AddProduct";
+import Shop from "./component/Shop";
+
 
 
 
@@ -31,6 +33,7 @@ export default function Routes() {
               
             <Route path="/signup" exact component={Signup }/>
             <Route path="/" exact component={Home }/>
+            <Route path="/shop" exact component={Shop }/>
             <Private path="/user/dashboard" exact component={Dashboard }/>
             <AdminPrivate path="/admin/dashboard" exact component={AdminDashboard }/>
             <AdminPrivate path="/create/category" exact component={AddCategory }/>
