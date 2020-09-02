@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Layout from './component/Layout'
 import { getProduct } from './actions/product'
 import Card from './component/Card'
+import Search from './component/Search'
 
 
 
@@ -36,6 +37,7 @@ const Home = () =>{
         <>
         <Layout>
             <h1>Home</h1>
+            <Search/>
             <h2>Best seller</h2>
             {productBySell.map((p,i)=>(
                 <Card key={i} product={p}/>

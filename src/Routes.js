@@ -15,6 +15,8 @@ import AdminPrivate from "./actions/AdminRoutes";
 import AddCategory from "./admin/AddCategory";
 import AddProduct from "./admin/AddProduct";
 import Shop from "./component/Shop";
+import SingleProductPage from "./component/SingleProductPage";
+import Cart from "./component/Cart";
 
 
 
@@ -30,8 +32,10 @@ export default function Routes() {
           
           <Switch>
             <Route path="/signin" exact component={Signin }/>
+            <Route path="/cart" exact component={Cart }/>
               
             <Route path="/signup" exact component={Signup }/>
+            <Route path="/product/:productId" exact component={SingleProductPage }/>
             <Route path="/" exact component={Home }/>
             <Route path="/shop" exact component={Shop }/>
             <Private path="/user/dashboard" exact component={Dashboard }/>

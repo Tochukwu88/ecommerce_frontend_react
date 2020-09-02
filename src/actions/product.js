@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch'
 import { API } from '../config'
+import queryString from 'query-string'
 
 
 export const createProduct = (userId,token,product)=>{
@@ -31,6 +32,19 @@ export const getProduct = (sortBy)=>{
         .catch(err=>console.log(err))
     )
 }
+export const list = (params)=>{
+    const query = queryString.stringify(params)
+    return(
+        fetch (`${API}/products/search?${query}`,{
+            method:'Get',
+           
+        })
+        .then(response =>{
+            return response.json()
+        })
+        .catch(err=>console.log(err))
+    )
+}
 export const Productfiltered = (skip,limit,filters={})=>{
     const data = {skip, limit,filters}
     return(
@@ -43,6 +57,31 @@ export const Productfiltered = (skip,limit,filters={})=>{
                
             },
             body:JSON.stringify(data)
+        })
+        .then(response =>{
+            return response.json()
+        })
+        .catch(err=>console.log(err))
+    )
+}
+export const read = (productId) =>{
+    return(
+        fetch (`${API}/product/${productId}`,{
+            method:'Get',
+           
+        })
+        .then(response =>{
+            return response.json()
+        })
+        .catch(err=>console.log(err))
+    )
+
+}
+export const getRelatedProduct = (productId)=>{
+    return(
+        fetch (`${API}/products/related/${productId}`,{
+            method:'Get',
+           
         })
         .then(response =>{
             return response.json()
