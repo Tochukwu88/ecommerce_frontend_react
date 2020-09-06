@@ -9,15 +9,16 @@ import Checkout from './checkout'
 
  const Cart = () =>{
      const [items,setItems] = useState([])
+     const [run,setRun] = useState(false)
      useEffect(()=>{
          setItems(getCart())
-     },[items])
+     },[run])
      const showItems = (items) =>{
          return (
              <div>
                  <h2>your cart has {`${items.length}`} items</h2>
                  {items.map((it,i)=>(
-                     <Card key={i} product={it} removeproductbtn={true} cartUpdate={true} showAddToCartBtn={false}/>
+                     <Card key={i} product={it} setRun={setRun} run={run} removeproductbtn={true} cartUpdate={true} showAddToCartBtn={false}/>
                  ))}
              </div>
          )

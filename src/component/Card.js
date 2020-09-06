@@ -9,7 +9,7 @@ import { addItem ,updateItems,removeItem} from './cartHelpers'
 
 
 
-const Card = ({product,showViewProductButton=true, showAddToCartBtn= true, cartUpdate=false,removeproductbtn=false}) =>{
+const Card = ({product, setRun = f=> f,run=undefined,  showViewProductButton=true, showAddToCartBtn= true, cartUpdate=false,removeproductbtn=false}) =>{
     const [ redirect , setRedirect] = useState(false)
     const [ count , setCount] = useState(product.count)
     const viewButton =(showViewProductButton) =>{
@@ -28,6 +28,7 @@ const Card = ({product,showViewProductButton=true, showAddToCartBtn= true, cartU
         }
     }
     const handleChange =(productId) =>e =>{
+        setRun(!run)
         setCount(e.target.value < 1 ? 1 : e.target.value)
         if(e.target.value >= 1){
             updateItems(productId, e.target.value)
@@ -48,7 +49,7 @@ const Card = ({product,showViewProductButton=true, showAddToCartBtn= true, cartU
     }
     const removeButton = (removeproductbtn) =>{
         return removeproductbtn && (
-            <button onClick={() =>{removeItem(product._id)}}>
+            <button onClick={() =>{removeItem(product._id); setRun(!run)}}>
                 <Link to='/'>remove product </Link>
             </button>
         )
