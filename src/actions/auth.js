@@ -96,3 +96,9 @@ export const isAuth=()=>{
         }
     }
 }
+export const clearCart = (next) =>{
+    if(typeof window !== 'undefined'){
+        localStorage.removeItem('cart')
+        next()
+    }
+}

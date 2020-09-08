@@ -32,7 +32,7 @@ import Checkout from './checkout'
          <>
              <Layout>
              {items.length > 0 ? showItems(items) : noItemsMessage()}
-             <Checkout products={items}/>
+             <Checkout products={items} setRun = {setRun} run={run}/>
 
              </Layout>
          </>
