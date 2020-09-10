@@ -7,7 +7,7 @@ import { isAuth } from '../actions/auth'
 import { Link } from 'react-router-dom'
 
 const AdminDashboard = () =>{
-    const {name,email,role} =isAuth()
+    const {user:{name,email,role}} =isAuth()
     return(
         <Layout>
 

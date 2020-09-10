@@ -9,6 +9,7 @@ import Signin from "./user/Signin";
 import Signup from "./user/Signup";
 import Home from "./Home";
 import Dashboard from "./user/UserDashboard";
+import Profile from "./user/Profile";
 import AdminDashboard from "./user/AdminDashboard";
 import Private from "./actions/privateRoute";
 import AdminPrivate from "./actions/AdminRoutes";
@@ -41,6 +42,7 @@ export default function Routes() {
             <Route path="/" exact component={Home }/>
             <Route path="/shop" exact component={Shop }/>
             <Private path="/user/dashboard" exact component={Dashboard }/>
+            <Private path="/profile/:userId" exact component={Profile }/>
             <AdminPrivate path="/admin/dashboard" exact component={AdminDashboard }/>
             <AdminPrivate path="/create/category" exact component={AddCategory }/>
             <AdminPrivate path="/create/product" exact component={AddProduct }/>

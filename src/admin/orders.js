@@ -4,9 +4,10 @@ import { isAuth } from '../actions/auth'
 import moment from 'moment'
  
 const { listOrders,getStatusValues, updateStatusValues } = require("../actions/createOrder")
-const {user,token} = isAuth()
+
 
 const AllOrders = () =>{
+    const {user,token} = isAuth()
 
     const [orders,setOrder] = useState([])
     const [statusValues,setStatusValues] = useState([])

@@ -23,7 +23,7 @@ export const createProduct = (userId,token,product)=>{
 export const getProduct = (sortBy)=>{
     return(
         fetch (`${API}/products?sortBy=${sortBy}&order=desc&limit=6`,{
-            method:'Get',
+            method:'GET',
            
         })
         .then(response =>{
@@ -36,7 +36,7 @@ export const list = (params)=>{
     const query = queryString.stringify(params)
     return(
         fetch (`${API}/products/search?${query}`,{
-            method:'Get',
+            method:'GET',
            
         })
         .then(response =>{
