@@ -19,6 +19,10 @@ import Shop from "./component/Shop";
 import SingleProductPage from "./component/SingleProductPage";
 import Cart from "./component/Cart";
 import AllOrders from "./admin/orders";
+import ManageProducts from "./admin/ManageProducts";
+import UpdateProduct from "./admin/updateProduct";
+
+
 
 
 
@@ -47,8 +51,11 @@ export default function Routes() {
             <AdminPrivate path="/create/category" exact component={AddCategory }/>
             <AdminPrivate path="/create/product" exact component={AddProduct }/>
             <AdminPrivate path="/admin/orders" exact component={AllOrders }/>
+            <AdminPrivate path="/admin/products" exact component={ManageProducts }/>
+            <AdminPrivate path="/admin/product/update/:productId" exact component={UpdateProduct }/>
            
            
+            
            
           </Switch>
         

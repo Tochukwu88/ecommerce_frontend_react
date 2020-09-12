@@ -80,7 +80,7 @@ export const read = (productId) =>{
 export const getRelatedProduct = (productId)=>{
     return(
         fetch (`${API}/products/related/${productId}`,{
-            method:'Get',
+            method:'GET',
            
         })
         .then(response =>{
