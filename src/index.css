@@ -1,5 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Oswald:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
 body{
   background: #fff;
+  font-family: 'Poppins', sans-serif;
 }
 
 ul{
@@ -8,4 +16,16 @@ ul{
 img{
   max-width: 100%;
   display: block;
+}
+.pBySell,.pByArrival,.shop-pg{
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 90%;
+ 
+}
+.pbs-card{
+   
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));;
+  grid-gap: 20px;
 }

@@ -3,6 +3,12 @@ import {Link, withRouter} from 'react-router-dom'
 import { signout, isAuth } from '../../actions/auth'
 import { totalItem } from '../cartHelpers'
 
+import './Header.css'
+
+import logo from './img/logo.png'
+import Search from '../Search'
+
+
 
 
 const isActive = (history,path) =>{
@@ -15,9 +21,15 @@ const isActive = (history,path) =>{
 const Header = ({history}) =>{
     return (
         <>
-            <div className='header'>
+       
+        <div className='container'>
+            <div className='navBar'>
+                <div><img className='logo' src={logo} alt='logo'></img></div>
+
+                <div><Search/></div>
+                
                 <nav>
-                <div>Logo</div>
+               
 
                     <ul>
                         <li>
@@ -49,6 +61,11 @@ const Header = ({history}) =>{
                     </ul>
                 </nav>
             </div>
+           
+
+          
+            </div>
+          
         </>
     )
 }

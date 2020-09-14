@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom'
 import ShowPhoto from './ShowProductImage'
 import moment from 'moment'
 import { addItem ,updateItems,removeItem} from './cartHelpers'
+import './Card.css'
 
 
 
@@ -13,7 +14,7 @@ const Card = ({product, setRun = f=> f,run=undefined,  showViewProductButton=tru
     const [ redirect , setRedirect] = useState(false)
     const [ count , setCount] = useState(product.count)
     const viewButton =(showViewProductButton) =>{
-    return   showViewProductButton && ( <button>    <Link to={`/product/${product._id}`}>view product</Link>  </button>)
+    return   showViewProductButton && ( <button className='card-btn btn'>    <Link   className='card-link'  to={`/product/${product._id}`}>view product</Link>  </button>)
     }
 
     const addtocart= () =>{
@@ -40,8 +41,8 @@ const Card = ({product, setRun = f=> f,run=undefined,  showViewProductButton=tru
     
     const addToCartButton = (showAddToCartBtn) =>{
         return showAddToCartBtn && (
-            <button onClick={addtocart}>
-                <Link to='/'>Add to cart</Link>
+            <button className='card-btn btn ' onClick={addtocart}>
+                <Link className='card-link' to='/'>Add to cart</Link>
             </button>
         )
 
@@ -61,17 +62,19 @@ const Card = ({product, setRun = f=> f,run=undefined,  showViewProductButton=tru
         )
     }
     return(
-        <div>
-            <h5>{product.name}</h5>
+        <div className='card'>
+            
             {shouldRedirect(redirect)}
             <ShowPhoto item={product} url='product'/>
+            <h1>{product.name}</h1>
+            
+            <p className='price'>NGN{product.price}</p>
             <p>{product.description.substring(0,50)}</p>
-            <p>{product.price}</p>
-            <p>category:{product.category && product.category.name}</p>
-            <p>Added on {moment(product.createdAt).fromNow()} </p>
+            <p>category:  {product.category && product.category.name}</p>
+            <p>Added  {moment(product.createdAt).fromNow()} </p>
             {   viewButton(showViewProductButton)}
            {addToCartButton(showAddToCartBtn)}
-           {showStock(product.quantity)}
+           {/* {showStock(product.quantity)} */}
            {removeButton(removeproductbtn)}
            {cartUpdateOptions(cartUpdate)}
            

@@ -1,0 +1,31 @@
+.row{
+    background: #fec89a;
+    text-align: center;
+    padding:70px 0;
+ }
+ .row h1{
+     font-size: 3.5rem ;
+     margin:25px 0
+ }
+ 
+ 
+ .btn{
+     display: inline-block;
+     background: #14213d;
+     color:#fff;
+     padding: 8px 30px;
+     margin:30px 0;
+     border-radius: 30px;
+     text-decoration:none
+     
+ }
+ .btn:hover{
+     opacity: 0.8;
+ }
+ 
+ .pBySell h2, .pByArrival h2{
+     margin: 60px;
+ }
+
+
+

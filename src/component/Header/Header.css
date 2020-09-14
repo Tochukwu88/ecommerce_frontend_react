@@ -1,0 +1,25 @@
+.navBar{
+    display: flex;
+    align-items: center;
+    padding: 20px ;
+    justify-content: space-between;
+    
+}
+
+.logo{
+    width:110px
+}
+
+nav ul{
+    display: inline-block;
+}
+nav ul li{
+    display: inline-block;
+    margin-right: 20px;
+}
+.container{
+    max-width: 1300px;
+    margin:auto;
+    padding: 0 25px;
+}
+

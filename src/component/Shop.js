@@ -92,7 +92,7 @@ const Shop = ()=>{
     },[])
     return (
         <><Layout>
-         <h1>shop</h1>
+        
           <div>
             <h4>filter by category</h4>
             <ul>
@@ -105,14 +105,18 @@ const Shop = ()=>{
                   <RadioBox prices={price} handleFilters={filters =>handleFilters(filters,'price')} />
               </div>
           </div>
-        <div>
+        <div className='shop-pg'>
             <h4>products</h4>
+            <div  className='pbs-card'>
             {filteredresult.map((p,i)=>(
                 
-                    <Card key={i} product={p}/>
-                
+                <Card key={i} product={p}/>
+            
 
-            ))}
+        ))}
+
+            </div>
+           
         </div>
         {loadMoreButton()}
         </Layout>

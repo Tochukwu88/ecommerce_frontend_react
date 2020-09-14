@@ -74,8 +74,8 @@ const Search =() =>{
               {categories.map((c,i)=>(<option key={i} value={c._id}> {c.name} </option>))}
           </select>
           
-           <input type='search' onChange={handleChange('search')} placeholder='search by name'></input>
-           <button>search</button>
+           <input type='search' className='searchTerm' onChange={handleChange('search')} placeholder='search by name'></input>
+           <button className='searchButton'>search</button>
            </span>
         </form>
     )
