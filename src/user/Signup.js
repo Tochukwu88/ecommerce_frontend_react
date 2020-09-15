@@ -1,7 +1,9 @@
 import React, { useState,useEffect } from 'react'
+import { Redirect } from 'react-router-dom'
 import {signup} from '../actions/auth'
 
 import Layout from '../component/Layout'
+import './Form.css'
 
  const Signup = () =>{
     const [values , setValues]= useState({
@@ -49,44 +51,50 @@ import Layout from '../component/Layout'
     }
     const showLoading =()=>(loading?<div><p>loading...</p></div>:'')
     const showError =()=>(error?<div><p>{error}</p></div>:'')
-    const showMessage=()=>(success?<div>{successmsg}</div>:'')
+    const showMessage=()=>(success?<div>
+    <Redirect to='/signin'></Redirect></div>:'')
    
     const signupForm=()=>{
         return(
-        
-        <div >
-        <form  onSubmit={handleSubmit} >
-        <div >
-
-
-          <div>
+            <div className='form-div'>
+            <form className='auth-form' onSubmit={handleSubmit} >
+            <div className='container'>
+    
+    
+               <h1>Sign Up</h1>
+              <p>Please fill in this form to create an account.</p>
+              <hr/>
+              <div>
+               
+                 </div>
+               <label className='label-email'> <b>name</b> </label>
+               <input value={name} onChange={handleChange('name')} type="text" className="text"  placeholder="name"  required/>
+              <label className='label-email'> <b>email</b> </label>       
+         
+               <input value={email} onChange={handleChange('email')} type="email" className="text"  placeholder="Email"  required/>
+               <label className="label-password"><b>password</b> </label>
            
-             </div>
-           <label className='label-email'> <b>name</b> </label>
-           <input value={name} onChange={handleChange('name')} type="text" className="text"  placeholder="name"  required/>
-          <label className='label-email'> <b>email</b> </label>       
-     
-           <input value={email} onChange={handleChange('email')} type="email" className="text"  placeholder="Email"  required/>
-           <label className="label-password"><b>password</b> </label>
-       
-           <input value={password}  onChange={handleChange('password')} type="password" className="text"  placeholder="Password"  required />
-          <button className='form-button'  type="submit">sign up</button>
-     </div>
-       
-             
-        
+               <input value={password}  onChange={handleChange('password')} type="password" className="text"  placeholder="Password"  required />
+              <button className='form-button'  type="submit">sign up</button>
+         </div>
+           
+                 
             
+                
+                
+            
+            </form>
+            </div>
             
         
-        </form>
-        </div>
+    
         )
     }
      return(
          <>
          <Layout>
 
-             <h1>sign up </h1>
+           
              {showError()}
            {showLoading()}
            {showMessage()}

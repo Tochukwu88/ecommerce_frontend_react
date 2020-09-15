@@ -6,6 +6,7 @@ import Layout from '../component/Layout'
 import { isAuth } from '../actions/auth'
 import { Link ,Redirect} from 'react-router-dom'
 import { getUser, updateUser,UpdateUserLS } from '../actions/user'
+import './Form.css'
 
 const Profile = ({match}) =>{
     const [values,setValues] = useState({
@@ -75,38 +76,45 @@ const Profile = ({match}) =>{
     }
     const profileUpateForm=()=>{
         return(
-          <div >
-          
-          <form  onSubmit={handleSubmit} >
-          <div >
-             
-          <label > <b>name</b> </label>
-             <input value={name} onChange={handleChange('name')} type="text" className="text"   required/>
-                  
-            <label > <b>email</b> </label>
-             <input value={email} onChange={handleChange('email')} type="email" className="text"  placeholder="Email"  required/>
-             <label className="label-password"><b>password</b> </label>
-         
-             <input value={password}  onChange={handleChange('password')} type="password" className="text"  placeholder="Password"  />
-            
-            <button className='form-button'  type="submit">update</button>
-       </div>
-         
+            <div className='form-div'>
+            <form className='auth-form' onSubmit={handleSubmit} >
+            <div className='container'>
+    
+    
                
-          
-              
-              
-          
-          </form>
-          </div>
+              <p>Please fill in the field(s) you wish to update.</p>
+              <hr/>
+              <div>
+               
+                 </div>
+               <label className='label-email'> <b>name</b> </label>
+               <input value={name} onChange={handleChange('name')} type="text" className="text"  placeholder="name"  required/>
+              <label className='label-email'> <b>email</b> </label>       
+         
+               <input value={email} onChange={handleChange('email')} type="email" className="text"  placeholder="Email"  required/>
+               <label className="label-password"><b>password</b> </label>
+           
+               <input value={password}  onChange={handleChange('password')} type="password" className="text"  placeholder="Password"   />
+              <button className='form-button'  type="submit">update</button>
+         </div>
+           
+                 
             
+                
+                
+            
+            </form>
+            </div>
+            
+        
+   
         )
     }
     return(
         <>
             <Layout>
 
-                <h1>UPDATE P</h1>
+              
                 {showError()}
                
                 {profileUpateForm(name,password)}

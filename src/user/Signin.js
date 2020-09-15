@@ -2,6 +2,7 @@ import React,{ useState, useEffect } from 'react'
 import Layout from '../component/Layout'
 import {signin,authenticate,isAuth} from '../actions/auth'
 import { Redirect } from 'react-router-dom'
+import './Form.css'
 
  const Signin = () =>{
     const [values , setValues]= useState({
@@ -62,19 +63,23 @@ import { Redirect } from 'react-router-dom'
     }
     const signinForm=()=>{
         return(
-          <div >
+    
+    <div className='form-div'>
           
-          <form  onSubmit={handleSubmit} >
-          <div >
+          <form className='auth-form' onSubmit={handleSubmit} >
+          <div className='container'>
+          <p>Please sign in.</p>
+             <div>
              
+             </div>
 
                   
-            <label > <b>email</b> </label>
+            <label className='label-email'> <b>email</b> </label>
              <input value={email} onChange={handleChange('email')} type="email" className="text"  placeholder="Email"  required/>
              <label className="label-password"><b>password</b> </label>
          
              <input value={password}  onChange={handleChange('password')} type="password" className="text"  placeholder="Password"  required />
-            
+           
             <button className='form-button'  type="submit">login</button>
        </div>
          
@@ -92,7 +97,7 @@ import { Redirect } from 'react-router-dom'
          <>
          <Layout>
 
-             <h1>sign in</h1>
+           
              {showError()}
         {showLoading()}
         {redirectUserHome()}
