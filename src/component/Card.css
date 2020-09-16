@@ -5,7 +5,7 @@
     text-align: center;
     
   }
-  .card-link{
+  .card-link, .removelnk{
   
    
     color:#fff;
@@ -23,3 +23,20 @@
     color: grey;
     font-size: 22px;
   }
+  .removelnk{
+
+    
+    color:#606c38;
+    
+  }
+  .inSt{
+    color: #52b788;
+    padding: 10px;
+  }
+  .outSt{
+    color: #d90429;
+  }
+  .updateCart{
+    margin-bottom: 20px;
+  }
+  

@@ -4,6 +4,7 @@ import { getCart } from './cartHelpers'
 import Card from './Card'
 import { Link } from 'react-router-dom'
 import Checkout from './checkout'
+import './Cart.css'
 
 
 
@@ -15,24 +16,34 @@ import Checkout from './checkout'
      },[run])
      const showItems = (items) =>{
          return (
-             <div>
-                 <h2>your cart has {`${items.length}`} items</h2>
+             <div className='showitems'>
+                 <h2> {`${items.length}`} items</h2>
+                 <div className='pbs-card'>
                  {items.map((it,i)=>(
                      <Card key={i} product={it} setRun={setRun} run={run} removeproductbtn={true} cartUpdate={true} showAddToCartBtn={false}/>
                  ))}
+
+                 </div>
+               
              </div>
          )
      }
      const noItemsMessage = ()=>{
-         return <h2>
+         return <h2 >
              cart is empty. <br/> <Link to="/shop"> continue shopping</Link>
          </h2>
      }
      return(
          <>
              <Layout>
+             <div className='cartSection'>
+
              {items.length > 0 ? showItems(items) : noItemsMessage()}
+           
+
+            
              <Checkout products={items} setRun = {setRun} run={run}/>
+             </div>
 
              </Layout>
          </>

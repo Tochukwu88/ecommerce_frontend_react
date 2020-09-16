@@ -17,6 +17,7 @@ import React, { useState } from 'react'
      return(
        category.map((c,i)=>(
            <l key={i}>
+              
                <input onChange={handleToggle(c._id)} value={checked.indexOf(c._id === -1)}  type='checkbox'/>
                <label>{c.name}</label>
            </l>

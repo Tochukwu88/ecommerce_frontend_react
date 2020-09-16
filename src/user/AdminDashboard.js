@@ -5,14 +5,15 @@ import React from 'react'
 import Layout from '../component/Layout'
 import { isAuth } from '../actions/auth'
 import { Link } from 'react-router-dom'
+import './AD.css'
 
 const AdminDashboard = () =>{
     const {user:{name,email,role}} =isAuth()
     return(
         <Layout>
 
-            <h1>Dashboard</h1>
-            <div>
+          <div className='AD-container'>
+            <div className='admin-info'>
             <h2>Admin information</h2>
             <ul>
                 <li>{name}</li>
@@ -20,15 +21,16 @@ const AdminDashboard = () =>{
                 <li>{role  === 1 ? "Admin" : "User"}</li>
             </ul>
             </div>
-            <div>
+            <div className='admin-link'>
             <h2>User links</h2>
             <ul>
-                <li><Link to='/create/category'>create category</Link></li>
-                <li><Link to='/create/product'>create product</Link></li>
-                <li><Link to='/admin/orders'>view orders</Link></li>
-                <li><Link to='/admin/products'>manage products</Link></li>
+                <li><Link className='admin-link-list' to='/create/category'>create category</Link></li>
+                <li><Link className='admin-link-list' to='/create/product'>create product</Link></li>
+                <li><Link className='admin-link-list' to='/admin/orders'>view orders</Link></li>
+                <li><Link className='admin-link-list' to='/admin/products'>manage products</Link></li>
                 
             </ul>
+            </div>
             </div>
             
             

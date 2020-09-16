@@ -13,7 +13,7 @@ import { PaystackButton } from "react-paystack"
 const Checkout = ({products, setRun= f => f,run =undefined}) =>{
     const [success , setSuccess] = useState(false)
     const [error, setError] = useState('')
-    const [address ,setAddress] = useState('no.1 okis street,parkland estate,peter odili road,trans amadi,port Harcourt')
+    const [address ,setAddress] = useState('')
    
   
        
@@ -36,7 +36,8 @@ const Checkout = ({products, setRun= f => f,run =undefined}) =>{
     }
     const showAddress = () =>{
       return(  <form>
-              <textarea value={address} onChange={handleChange} placeholder='enter delivery address'></textarea>
+              <textarea className='addresstxt'
+              value={address} onChange={handleChange} placeholder='enter delivery address'></textarea>
              </form>
       )
     }
@@ -84,16 +85,16 @@ const Checkout = ({products, setRun= f => f,run =undefined}) =>{
    
     const showCheckout = () =>{
         return (
-            isAuth() ?   <PaystackButton {...componentProps} />:(<button><Link to='/signin'>signin to Checkout</Link></button>)
+            isAuth() ?  <PaystackButton  className='paybtn' {...componentProps} />:(<button><Link to='/signin'>signin to Checkout</Link></button>)
         )
     }
     return (
        <>
        {showError()}
        {showMessage()}
-            <h2>total:N{getTotal()}</h2>
+         {products.length >0 && ( <div>  <h2>total: NGN{getTotal()}</h2>
             {showAddress()}
-          {showCheckout()}
+          {showCheckout()}</div>)}
         
        </>
     )

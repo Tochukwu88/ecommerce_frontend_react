@@ -50,15 +50,15 @@ const Card = ({product, setRun = f=> f,run=undefined,  showViewProductButton=tru
     }
     const removeButton = (removeproductbtn) =>{
         return removeproductbtn && (
-            <button onClick={() =>{removeItem(product._id); setRun(!run)}}>
-                <Link to='/'>remove product </Link>
-            </button>
+          
+                <Link className='removelnk' onClick={() =>{removeItem(product._id); setRun(!run)}} to='/'>remove product </Link>
+           
         )
 
     }
     const showStock = q =>{
         return(
-            q > 0 ? <span>in stock</span> :<span>out of stock</span>
+            q > 0 ? <span className='inSt' >in stock</span> :<span className='outSt'>out of stock</span>
         )
     }
     return(
@@ -70,14 +70,17 @@ const Card = ({product, setRun = f=> f,run=undefined,  showViewProductButton=tru
             
             <p className='price'>NGN{product.price}</p>
             <p>{product.description.substring(0,50)}</p>
+         
             <p>category:  {product.category && product.category.name}</p>
             <p>Added  {moment(product.createdAt).fromNow()} </p>
+          
             {   viewButton(showViewProductButton)}
            {addToCartButton(showAddToCartBtn)}
-           {/* {showStock(product.quantity)} */}
-           {removeButton(removeproductbtn)}
-           {cartUpdateOptions(cartUpdate)}
-           
+         <div className='rm-ss'>  {removeButton(removeproductbtn)}
+           {showStock(product.quantity)}</div>
+          
+           <div className='updateCart'>{cartUpdateOptions(cartUpdate)}
+          </div> 
             
         </div>
     )

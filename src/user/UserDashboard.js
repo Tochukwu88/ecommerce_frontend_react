@@ -7,6 +7,7 @@ import { isAuth } from '../actions/auth'
 import { Link } from 'react-router-dom'
 import { getPurchaseHistory } from '../actions/user'
 import moment from 'moment'
+import './UD.css'
 
 const Dashboard = () =>{
     const [purchaseHistory, setPurchaseHistory] = useState([])
@@ -27,31 +28,34 @@ const Dashboard = () =>{
     return(
         <Layout>
 
-            <h1>Dashboard</h1>
-            <div>
+         <div className='UD-container'>
+
+          
+            <div className='user-info'>
             <h2>user information</h2>
             <ul>
-                <li>{name}</li>
-                <li>{email}</li>
+                <li>NAME: {name}</li>
+                <li>EMAIL: {email}</li>
                 <li>{role  === 1 ? "Amin" : "User"}</li>
             </ul>
             </div>
-            <div>
+            <div className='purchase-history'>
             <h2>purchase history</h2>
-           
-            <ul>
-           
-                <li>
-                {purchaseHistory.map((h,i)=>{
+            {purchaseHistory.map((h,i)=>{
                  return   (
-                     <div>
-                     <hr/>
+                     <div className='p-info'>
+                     
                          {h.products.map((p,i)=>{
                         return(
-                            <div key={i}>
-                            <h6>product name:{p.name}</h6>
-                            <h6>product price: NGN{p.price}</h6>
-                            <h6>product date:{moment(p.createdAt).fromNow()}</h6>
+                            <div  key={i}>
+                            <ul>
+                                <li>product name:  {p.name}</li>
+                                <li>product price: NGN{p.price}</li>
+                                <li>status: {h.status}</li>
+                             
+                            </ul>
+                            
+                            <hr/>
 
                             </div>
                         )
@@ -59,21 +63,18 @@ const Dashboard = () =>{
                      </div>
                  )
                 })}
-              
-
-                </li>
-               
-               
-            </ul>
+         
             </div>
-            <div>
+            <div className='user-link'>
             <h2>User links</h2>
             <ul>
-                <li><Link to='/cart'>My cart</Link></li>
-                <li><Link to={`/profile/${_id}`}>update profile</Link></li>
+                <li><Link className='user-link-list' to='/cart'>My cart</Link></li>
+                <li><Link className='user-link-list' to={`/profile/${_id}`}>update profile</Link></li>
                 
             </ul>
             </div>
+           </div>
+         
         </Layout>
     )
 }
