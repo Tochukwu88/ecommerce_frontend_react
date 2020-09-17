@@ -100,20 +100,29 @@ const UpdateProduct = ({match}) =>{
     const showMessage =()=>(createdProduct?<div><p>{`${createdProduct} updated`}</p></div>:'')
 
     const newPostForm = () =>{
-        return <form onSubmit={handleSubmit}>
+        return <form className='addProduct-form' onSubmit={handleSubmit}>
+        <h1>update product</h1>
          <div>
              <h4>upload a photo</h4>
              <input type='file'  onChange={handleChange('photo')} name='photo' accept='image/*'/>
          </div>  
-         <div>
-             <label><b>name</b></label>
+         <div className='form-div-input'>
+        
+         <label><b>name</b></label>
              <input onChange={handleChange('name')} value={name} type='text'></input>
-             <label><b>description</b></label>
-           <textarea onChange={handleChange('description')} value={description}></textarea>
-           <label><b>price</b></label>
+        
+             
+             <textarea className='txt-area' onChange={handleChange('description')} value={description} placeholder='product description'></textarea>
+             
+             
+             <label><b>price</b></label>
              <input onChange={handleChange('price')} value={price} type='number'></input>
+
+            
              <label><b>quantity</b></label>
              <input onChange={handleChange('quantity')} value={quantity} type='number'></input>
+
+           
              <label><b>category</b></label>
              <select onChange={handleChange('category')} >
                  <option >please select</option>
@@ -121,15 +130,25 @@ const UpdateProduct = ({match}) =>{
                      return<option key={i} value={c._id}>{c.name}</option>
                  })}
              </select>
+            
+
+            
              <label><b>shipping</b></label>
              <select onChange={handleChange('shipping')} >
              <option >please select</option>
                  <option value='0'>no</option>
                  <option value='1'>yes</option>
              </select>
+           
+             
+          
+        
+           
+          
+
          </div>  
 
-         <button type='submit'>Update product</button>  
+         <button className='btn' type='submit'>update product</button>  
 
 
 
@@ -137,7 +156,7 @@ const UpdateProduct = ({match}) =>{
     }
     return(
         <Layout>
-            <h1>product</h1>
+            
             {showMessage()}
             {showLoading()}
             {showError}

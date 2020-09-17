@@ -69,9 +69,7 @@ import './Form.css'
           <form className='auth-form' onSubmit={handleSubmit} >
           <div className='container'>
           <p>Please sign in.</p>
-             <div>
-             
-             </div>
+            
 
                   
             <label className='label-email'> <b>email</b> </label>

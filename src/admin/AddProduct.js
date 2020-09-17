@@ -3,6 +3,7 @@ import { isAuth } from '../actions/auth'
 import Layout from '../component/Layout'
 import {createProduct} from '../actions/product'
 import { getCategory } from '../actions/category'
+import './AddProduct.css'
 
 const AddProduct = () =>{
     const [values,setValues] = useState({
@@ -88,20 +89,29 @@ const AddProduct = () =>{
     const showMessage =()=>(createdProduct?<div><p>{`${createdProduct} created`}</p></div>:'')
 
     const newPostForm = () =>{
-        return <form onSubmit={handleSubmit}>
+        return <form className='addProduct-form' onSubmit={handleSubmit}>
+        <h1>Add a product</h1>
          <div>
              <h4>upload a photo</h4>
              <input type='file'  onChange={handleChange('photo')} name='photo' accept='image/*'/>
          </div>  
-         <div>
-             <label><b>name</b></label>
+         <div className='form-div-input'>
+        
+         <label><b>name</b></label>
              <input onChange={handleChange('name')} value={name} type='text'></input>
-             <label><b>description</b></label>
-           <textarea onChange={handleChange('description')} value={description}></textarea>
-           <label><b>price</b></label>
+        
+             
+             <textarea className='txt-area' onChange={handleChange('description')} value={description} placeholder='product description'></textarea>
+             
+             
+             <label><b>price</b></label>
              <input onChange={handleChange('price')} value={price} type='number'></input>
+
+            
              <label><b>quantity</b></label>
              <input onChange={handleChange('quantity')} value={quantity} type='number'></input>
+
+           
              <label><b>category</b></label>
              <select onChange={handleChange('category')} >
                  <option >please select</option>
@@ -109,15 +119,25 @@ const AddProduct = () =>{
                      return<option key={i} value={c._id}>{c.name}</option>
                  })}
              </select>
+            
+
+            
              <label><b>shipping</b></label>
              <select onChange={handleChange('shipping')} >
              <option >please select</option>
                  <option value='0'>no</option>
                  <option value='1'>yes</option>
              </select>
+           
+             
+          
+        
+           
+          
+
          </div>  
 
-         <button type='submit'>create product</button>  
+         <button className='btn' type='submit'>create product</button>  
 
 
 
@@ -125,7 +145,7 @@ const AddProduct = () =>{
     }
     return(
         <Layout>
-            <h1>product</h1>
+          
             {showMessage()}
             {showLoading()}
             {showError}
@@ -134,3 +154,8 @@ const AddProduct = () =>{
     )
 }
 export default AddProduct
+
+
+
+
+

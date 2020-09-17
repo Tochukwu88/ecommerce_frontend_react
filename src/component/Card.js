@@ -69,9 +69,7 @@ const Card = ({product, setRun = f=> f,run=undefined,  showViewProductButton=tru
             <h1>{product.name}</h1>
             
             <p className='price'>NGN{product.price}</p>
-            <p>{product.description.substring(0,50)}</p>
-         
-            <p>category:  {product.category && product.category.name}</p>
+        
             <p>Added  {moment(product.createdAt).fromNow()} </p>
           
             {   viewButton(showViewProductButton)}

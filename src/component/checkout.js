@@ -85,7 +85,7 @@ const Checkout = ({products, setRun= f => f,run =undefined}) =>{
    
     const showCheckout = () =>{
         return (
-            isAuth() ?  <PaystackButton  className='paybtn' {...componentProps} />:(<button><Link to='/signin'>signin to Checkout</Link></button>)
+            isAuth() ?  <PaystackButton  className='paybtn' {...componentProps} />:(<button className='paybtn'><Link className='paybtn-link' to='/signin'>signin to Checkout</Link></button>)
         )
     }
     return (

@@ -42,33 +42,28 @@ const AddCategory =()=>{
     
     const createCatForm=()=>{
         return(
-          <div >
+            <div className='form-div'>
           
-          <form  onSubmit={handleSubmit} >
-          <div >
-             
-
-                  
-            <label > <b>name</b> </label>
-             <input value={name} onChange={handleChange('name')} type="name" className="text"  placeholder="name"  required/>
-             
-            <button className='form-button'  type="submit">create</button>
-       </div>
-         
+            <form className='auth-form' onSubmit={handleSubmit} >
+            <div className='container'>
+            <p>create category</p>
+          
+  
+                    
+              <label className='label-email'> <b>name</b> </label>
+               <input value={name} onChange={handleChange('name')} type="name" className="text"  placeholder="name"  required/>
                
-          
-              
-              
-          
-          </form>
-          </div>
-            
+              <button className='form-button'  type="submit">create</button>
+         </div>
+         </form>
+         </div>
+        
         )
     }
 
     return(
         <Layout>
-            <h1>create category</h1>
+           
             {showLoading()}
             {showError()}
             {showMessage()}
@@ -77,3 +72,6 @@ const AddCategory =()=>{
     )
 }
  export default AddCategory
+
+
+
