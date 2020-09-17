@@ -1,0 +1,20 @@
+.singleProduct-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+ 
+
+    margin: 70px 0;
+}
+.singleProduct-img{
+  
+    max-width: 300px;
+  
+}
+.relatedP-container{
+    margin:100px 0;
+    text-align:center;
+}
+.relatedP-container h2{
+    margin:50px 0;
+}
