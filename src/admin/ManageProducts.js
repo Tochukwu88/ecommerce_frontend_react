@@ -3,6 +3,9 @@ import Layout from '../component/Layout'
 import { allAdminProduct, deleteProduct } from '../actions/admin'
 import { isAuth } from '../actions/auth'
 import { Link } from 'react-router-dom'
+import ShowPhoto from '../component/ShowProductImage'
+import './ManageProducts.css'
+
 
 
 const ManageProducts = () =>{
@@ -32,18 +35,26 @@ const ManageProducts = () =>{
     return(
         <>
             <Layout>
-              <div>
-              <h2>Total : {product.length} products</h2>
-                  <ul>
+            <h2>Total : {product.length} products</h2>
+              <div className='product-wrapper'>
+                     
+                 
                   {product.map((p,i)=>(
-                      <li key={i}>
-                          {p.name}
-                          <Link to={`/admin/product/update/${p._id}`}>Update</Link>
-                          <button onClick={()=>removeProduct(p._id)}>Delete product</button>
-                      </li>
+                      <div  key={i}>
+                     <div className='product-img' > <ShowPhoto item={p} url='product'/>
+                       {p.name}
+                        <div>
+                           
+                            <Link className='mp-btn mp-btn-up' to={`/admin/product/update/${p._id}`}>Update </Link>
+                            <button className='mp-btn mp-btn-del' onClick={()=>removeProduct(p._id)}>Delete </button>
+                          </div>
+                       
+                     </div>
+                        
+                      </div>
                   ))}
-                      <li></li>
-                  </ul>
+                     
+                
               </div>
             
             </Layout>
