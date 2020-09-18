@@ -145,10 +145,10 @@ const AddProduct = () =>{
     }
     return(
         <Layout>
-          
+             {showError}
             {showMessage()}
             {showLoading()}
-            {showError}
+           
             {newPostForm()}
         </Layout>
     )

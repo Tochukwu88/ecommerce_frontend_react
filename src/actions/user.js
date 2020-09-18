@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 import { API } from '../config'
-import queryString from 'query-string'
+
 
 export const updateUser = (userId,token,userData)=>{
     return(

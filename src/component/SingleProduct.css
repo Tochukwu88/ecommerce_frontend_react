@@ -18,3 +18,11 @@
 .relatedP-container h2{
     margin:50px 0;
 }
+.product-info{
+    width: 50%;
+}
+@media(max-width:1024px){
+    .product-info{
+        width: 80%;
+    }
+}

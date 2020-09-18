@@ -88,7 +88,7 @@ import {  deleteProduct } from '../actions/admin'
                 
                 {product && product.description && (<div className='singleProduct-container'>
                 <div className='singleProduct-img'> <ShowPhoto item={product} url='product'/></div>
-               <div> <h1>{product.name}</h1>
+               <div className='product-info'> <h1>{product.name}</h1>
                <p className='price'>NGN{product.price}</p>
                 <p>{product.description}</p>
                  {inCart?(<button className='card-btn btn '> <Link className='card-link' to='/cart'>go to cart</Link></button>):(addToCartButton())}

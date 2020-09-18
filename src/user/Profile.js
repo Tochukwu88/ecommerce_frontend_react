@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 
 import Layout from '../component/Layout'
 import { isAuth } from '../actions/auth'
-import { Link ,Redirect} from 'react-router-dom'
+import { Redirect} from 'react-router-dom'
 import { getUser, updateUser,UpdateUserLS } from '../actions/user'
 import './Form.css'
 

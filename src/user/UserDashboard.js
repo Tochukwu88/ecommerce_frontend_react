@@ -6,7 +6,7 @@ import Layout from '../component/Layout'
 import { isAuth } from '../actions/auth'
 import { Link } from 'react-router-dom'
 import { getPurchaseHistory } from '../actions/user'
-import moment from 'moment'
+
 import './UD.css'
 
 const Dashboard = () =>{
