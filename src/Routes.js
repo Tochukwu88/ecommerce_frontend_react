@@ -24,7 +24,7 @@ import UpdateProduct from "./admin/updateProduct";
 
 
 
-
+// SKIP_PREFLIGHT_CHECK=true
 
 
 
