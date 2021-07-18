@@ -7,8 +7,8 @@ import './Form.css'
  const Signin = () =>{
     const [values , setValues]= useState({
         
-        email:'teeceemum@gmail.com',
-        password:'flower54',
+        email:'',
+        password:'',
         error:'',
         loading:false,
         redirectUser:false,
